@@ -1,0 +1,39 @@
+# Ignore PyCharm/IDEA project files
+.idea/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment
+venv/
+env/
+*.venv
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore database files (if applicable)
+*.sqlite3
+*.db
+
+# Ignore compiled files
+*.so
+*.o
+*.obj
+
+# Ignore log and temp files
+*.log
+*.tmp
+
+# Ignore environment variables and sensitive data
+.env
+.env.local
+.env.development
+.env.production
+
+# Ignore node_modules (if using JavaScript inside UI)
+node_modules/
