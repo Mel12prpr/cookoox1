@@ -22,15 +22,18 @@ CREATE TABLE IF NOT EXISTS recipes (
 )
 """)
 
+# Load JSON data
 with open("recipes.json", "r", encoding="utf-8") as file:
-    data = json.load(file)
+    data = json.load(file)  # Load the JSON file into a Python dictionary
 
-
+# Access the list of recipes using the "recipes" key
 recipes = data["recipes"]
 
+# Insert recipes into the table
 for recipe in recipes:
-    prep_time = re.search(r"\d+", recipe["prep_time"])
-    prep_time = int(prep_time.group()) if prep_time else 0
+    # Extract the numeric part of prep_time using a regular expression
+    prep_time = re.search(r"\d+", recipe["prep_time"])  # Finds the first number
+    prep_time = int(prep_time.group()) if prep_time else 0  # Convert to int, default to 0 if no number
 
     cursor.execute("""
     INSERT INTO recipes (
@@ -50,12 +53,13 @@ for recipe in recipes:
         recipe["category"],
         recipe["country"],
         recipe["ingredients"],
-        recipe["ingredients_details"],
+        recipe["ingredients_details"],  # Corrected field name
         recipe["instructions"],
-        prep_time,
-        recipe.get("photo_path", "")
+        prep_time,  # Use the extracted numeric prep_time
+        recipe.get("photo_path", "")  # Default to an empty string if photo_path is missing
     ))
 
+# Commit changes and close the connection
 conn.commit()
 conn.close()
 

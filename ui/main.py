@@ -13,7 +13,7 @@ class CategoryWindow(QtWidgets.QWidget):
         self.filter_type = filter_type
         self.filter_value = filter_value
         self.load_recipes()
-
+# receptebis filtracia da daloudeba
     def load_recipes(self):
         conn = sqlite3.connect("D:/Python_II/cookbox/database/cookbox.db")
         cursor = conn.cursor()
@@ -48,12 +48,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.windows = {}
 
-        # Categories
+        # kategorebis ghilakebi
         self.kerdzebi.clicked.connect(lambda: self.open_category("category", "კერძი", kerdzebisgverdi.Ui_Form))
-        self.desertebi.clicked.connect(lambda: self.open_category("category", "წასახემსებელი", desertebisgverdi.Ui_Form))
-        self.wasaxemsebeli.clicked.connect(lambda: self.open_category("category", "დესერტი", snekebisgverdi.Ui_Form))
+        self.wasaxemsebeli.clicked.connect(lambda: self.open_category("category", "წასახემსებელი",  snekebisgverdi.Ui_Form  ))
+        self.desertebi.clicked.connect(lambda: self.open_category("category", "დესერტი", desertebisgverdi.Ui_Form  ))
 
-        # Countries
+        # qveynebis ghilakebi
         self.japan.clicked.connect(lambda: self.open_category("country", "იაპონია", iaponiiisgverdi.Ui_Form))
         self.italy.clicked.connect(lambda: self.open_category("country", "იტალია", italiisgverdi.Ui_Form))
         self.turkey.clicked.connect(lambda: self.open_category("country", "თურქეთი", truketisgverdii.Ui_Form))
@@ -61,10 +61,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.georgia.clicked.connect(lambda: self.open_category("country", "საქართველო", sakartveloo.Ui_Form))
         self.france.clicked.connect(lambda: self.open_category("country", "საფრანგეთი", safrangetisgverdi.Ui_Form))
 
-        # Search button
+        # dzebnis ghilaki
         self.pushButton_11.clicked.connect(self.search_recipes)
 
-        # Ingredient search button (checkbox)
+        # ingredientiT dzebnis ghilaki
         self.pushButton.clicked.connect(self.open_checkbox)
 
     def open_category(self, filter_type, filter_value, ui_class):
@@ -112,7 +112,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.checkboxx_window.show()
 
     def get_selected_ingredients(self):
-        """Get selected ingredients and filter recipes accordingly."""
         selected_ingredients = []
 
         for checkbox_name in dir(self.ui_checkboxx):
@@ -121,7 +120,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         if selected_ingredients:
             results_text = self.filter_recipes_by_ingredients(selected_ingredients)
-            self.ui_checkboxx.label_2.setText(results_text)  # Display results in label_2
+            self.ui_checkboxx.label_2.setText(results_text)
 
     def filter_recipes_by_ingredients(self, ingredients):
         conn = sqlite3.connect("D:/Python_II/cookbox/database/cookbox.db")

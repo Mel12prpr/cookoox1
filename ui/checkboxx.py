@@ -167,7 +167,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Checkbox"))
         self.checkBox_7.setText(_translate("Form", "ბრინჯი"))
         self.checkBox_26.setText(_translate("Form", "სტაფილო"))
         self.checkBox_8.setText(_translate("Form", "თევზი"))

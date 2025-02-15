@@ -33,7 +33,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Turkey"))
         self.label_2.setText(_translate("Form", "                       თურქული  კერძები"))
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget

@@ -24,33 +24,29 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "ძიების შედეგი"))
+        Form.setWindowTitle(_translate("Form", "result"))
 
 
     def display_results(self, results):
-        """Display the search results with selected information (name, ingredient details, and prep time)."""
         result_text = ""
 
         if results:
             for recipe in results:
-                # Extracting the required data from the recipe tuple
-                dish_name = recipe[0]  # Dish name
-                ingredient_details = recipe[1]  # Ingredient details
-                prep_time = recipe[3]  # Preparation time
-                instructions = recipe[2]  # Instructions
+                dish_name = recipe[0]
+                ingredient_details = recipe[1]
+                prep_time = recipe[3]
+                instructions = recipe[2]
 
-                # Formatting the result text
                 result_text += f"🍽 <b>{dish_name}</b>\n"
                 result_text += f"🔍 <b>ინგრედიენტები:</b>\n{ingredient_details}\n\n"
                 result_text += f"⏳ <b>მომზადების დრო:</b> {prep_time} წუთი\n\n"
                 result_text += f"📜 <b>ინსტრუქცია:</b>\n{instructions}\n\n"
-                result_text += "<hr>"  # Divider between recipes
+                result_text += "<hr>"
 
             result_text = result_text.replace("\n",
-                                              "<br>")  # Converting new lines to HTML line breaks for better display
+                                              "<br>")
         else:
-            result_text = "No recipes found."
+            result_text = "რეცეპტი არ მოიძებნა"
 
-        # Set the result text in the QTextEdit (multiline widget)
         self.resultDisplay.setText(result_text)
 

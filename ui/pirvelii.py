@@ -337,7 +337,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "CookBox"))
         self.turkey.setText(_translate("MainWindow", "თურქეთი"))
         self.kerdzebi.setText(_translate("MainWindow", "კერძი"))
         self.wasaxemsebeli.setText(_translate("MainWindow", "წასახემსებელი"))
