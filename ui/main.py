@@ -13,6 +13,7 @@ class CategoryWindow(QtWidgets.QWidget):
         self.filter_type = filter_type
         self.filter_value = filter_value
         self.load_recipes()
+
 # receptebis filtracia da daloudeba
     def load_recipes(self):
         conn = sqlite3.connect("D:/Python_II/cookbox/database/cookbox.db")

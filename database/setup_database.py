@@ -1,12 +1,10 @@
 import sqlite3
 import json
-import re  # To extract numbers from strings
+import re
 
-# Connect to SQLite database
 conn = sqlite3.connect("cookbox.db")
 cursor = conn.cursor()
 
-# Create the `recipes` table if it doesn't exist
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS recipes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -22,16 +20,19 @@ CREATE TABLE IF NOT EXISTS recipes (
 )
 """)
 
+# vxsniT json fails da mogvaqvs data
 with open("recipes.json", "r", encoding="utf-8") as file:
     data = json.load(file)
 
 
 recipes = data["recipes"]
 
+# regexit ricxvis wamogeba
 for recipe in recipes:
     prep_time = re.search(r"\d+", recipe["prep_time"])
     prep_time = int(prep_time.group()) if prep_time else 0
 
+# jsonidan wamogebuli datas gashevba bazashi ufro martivad :)
     cursor.execute("""
     INSERT INTO recipes (
         dish_name, 
